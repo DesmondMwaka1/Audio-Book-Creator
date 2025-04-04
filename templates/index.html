@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio Book Creator</title>
+    <style>
+        div {
+            text-align: center;
+            color: aliceblue;
+        }
+        html, body {
+            background-color: grey;
+        }
+        form {
+            text-align: center;
+        }
+        p, h1 {
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Book Creator</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <p>Upload your text file:</p>
+        <input type="file" name="aufile" accept=".txt" required>
+        <br><br>
+        <button type="submit">Create Audiobook</button>
+    </form>
+</body>
+</html>
