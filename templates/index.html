@@ -8,7 +8,7 @@
             color: aliceblue;
         }
         html, body {
-            background-color: grey;
+            background-color: black;
         }
         form {
             text-align: center;
@@ -16,15 +16,141 @@
         p, h1 {
             color: aliceblue;
         }
+        .top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between; /* Spaces out the left and right groups */
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .top0 {
+            text-align:center; /* Aligns "Audio Book Creator" to the left */
+            font-size: 1.5rem;
+            font-weight: bold;
+            width: 50%;
+            margin-right: 20%;
+            color: aqua;
+        }
+        
+        .top1 {
+            display: flex; /* Groups the right-side items together */
+            gap: 1.5rem; /* Adds spacing between the items */
+            text-align: right; /* Aligns items to the right */
+            width: 5%;
+            color: aqua;
+        }
+        
+        .uplo {
+            margin-top: 1%;
+            display: flex; /* Enables flexbox for side-by-side layout */
+            justify-content: space-between; /* Adds space between the two divs */
+            align-items: flex-start; /* Aligns items at the top */
+            padding: 0 5%; /* Adds padding on the sides for better spacing */
+        }
+        
+        .uleft, .uright {
+            width: 25%; /* Sets width */
+            height: 20rem; /* Sets height */
+            border: 1px solid black; /* Adds border */
+            border-radius: 2rem; /* Rounds corners */
+            background-color: aqua; /* Background color */
+            color: black; /* Text color */
+            box-shadow: 0 0 20px skyblue; /* Adds shadow */
+            display: flex; /* Enables flexbox */
+            justify-content: center; /* Horizontally centers content */
+            align-items: center; /* Vertically centers content */
+            flex-direction: column; /* Stacks content vertically */
+            transition: all 0.3s ease; /* Smooth hover animation */
+        }
+        
+        .uleft p, .uright p{
+            color: black;
+        }
+        .uleft:hover , .uright:hover{
+            transform: translateY(-10px)
+        }
+        .one{
+            margin-top: 15%;
+            display: flex;
+            background-color: black;
+            justify-content: space-between;
+            padding: 0 5%;
+            left: 0;
+            right: 0;
+            align-items: flex-start;
+        }
+        .two{
+            background-color: aqua;
+            width: 25.5%;
+            border-radius: 10px;
+        }
+        .two p{
+            color: black;
+        }
+        footer{
+            bottom: 0;
+            background-color: aqua;
+            position: fixed;
+            width: 100%;
+            text-align: center;
+        }
+        footer p{
+            color: black;
+        }
+
+        .inUplo{
+            text-align: center;
+            align-items: center;
+
+        }        
+        button{
+            background-color: aqua;
+            border-radius: 10px;
+        }
     </style>
-</head>
 <body>
-    <h1>Audio Book Creator</h1>
-    <form method="POST" action="/upload" enctype="multipart/form-data">
-        <p>Upload your text file:</p>
-        <input type="file" name="aufile" accept=".txt" required>
-        <br><br>
-        <button type="submit">Create Audiobook</button>
-    </form>
+    <div class="top">
+        <div class="top0">Audio Book Creator</div>
+        <div class="top1">Home</div>
+        <div class="top1">Tools</div>
+        <div class="top1">Apps</div>
+        <div class="top1">Help</div>
+    </div>
+    <div class="one">
+        <div class="two">
+            <p>Upload Text Document</p>
+        </div>
+        <div class="two">
+            <p>Enter Text here</p>
+        </div>
+    </div>
+    <div class="uplo">
+        <div class="uleft">
+            <form method="POST" action="/upload" enctype="multipart/form-data">
+                <p>Upload your text file:</p>
+                <input type="file" name="aufile" accept=".txt" required>
+                <br>
+                <button type="submit">Create Audiobook</button>
+            </form>
+        </div>
+        <div class="uright">
+            <form method="POST" action="/write">
+                <input class="inUplo" type="text" name="itext" placeholder="Enter text here:">
+                <br>
+                <button type="submit">Create Audiobook</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Aqua AI | All rights reserved</p>
+    </footer>
 </body>
 </html>
